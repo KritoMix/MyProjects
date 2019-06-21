@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    
+</head>
+<body>
+    <div class ="NavBarPanel">
+         <a asp-controller="Home" asp-action="Index">
+         Index
+        </a>
+        <a asp-controller="Home" asp-action="Privacy">
+         Privacy
+        </a>
+         <a asp-controller="Home" asp-action="ImagePanel">
+         ImagePanel
+        </a>
+    </div>
+    <div class="container">
+            @RenderBody()
+    </div>
+</body>
+</html>
