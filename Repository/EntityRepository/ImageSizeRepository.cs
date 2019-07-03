@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 namespace AdminPanel
@@ -9,7 +11,10 @@ namespace AdminPanel
     public ImageSizeRepository()//AppContext context
     {
       ImageSizes = new List<SizeImage>();
-     //Context = context;
+               ImageSizes.Add(new SizeImage(){ Width = 100, Height = 100 , NameSize = "100_100" });
+               ImageSizes.Add(new SizeImage(){ Width = 400, Height = 400 , NameSize = "400_400" });
+               ImageSizes.Add(new SizeImage(){ Width = 800, Height = 800 , NameSize = "800_800" });
+    // Context = context;
     }
     public IEnumerable<SizeImage> GetAll()
     {

@@ -7,3 +7,166 @@ for details on configuring this project to bundle and minify static web assets. 
   height: 100px;
   
 }
+
+.Navbutton {
+  margin: 10px;
+  position: relative;
+  display: inline-block;
+  font-size: 90%;
+  font-weight: 700;
+  color: rgb(209,209,217);
+  text-decoration: none;
+  text-shadow: 0 -1px 2px rgba(0,0,0,.2);
+  padding: .5em 1em;
+  outline: none;
+  border-radius: 3px;
+  background: linear-gradient(rgb(110,112,120), rgb(81,81,86)) rgb(110,112,120);
+  box-shadow:
+   0 1px rgba(255,255,255,.2) inset,
+   0 3px 5px rgba(0,1,6,.5),
+   0 0 1px 1px rgba(0,1,6,.2);
+  transition: .2s ease-in-out;
+}
+.Navbutton:hover {
+  background: linear-gradient(rgb(126,126,134), rgb(70,71,76)) rgb(126,126,134);
+  text-decoration: none;
+  font-size: 105%;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+.Navbutton:active {
+  top: 1px;
+  background: linear-gradient(rgb(76,77,82), rgb(56,57,62)) rgb(76,77,82);
+  box-shadow:
+   0 0 1px rgba(0,0,0,.5) inset,
+   0 2px 3px rgba(0,0,0,.5) inset,
+   0 1px 1px rgba(255,255,255,.1);
+   text-decoration: none;
+   color: rgb(241, 245, 245);
+   font-size: 95%;
+  }
+  .MainButton {
+    margin: 5px;
+    position: relative;
+    display: inline-block;
+    font-size: 80%;
+    font-weight: 700;
+    color: rgb(175, 175, 184);
+    text-decoration: none;
+    text-shadow: 0 -1px 2px rgba(0,0,0,.2);
+    padding: .5em 1em;
+    outline: none;
+    border-radius: 3px;
+    background: linear-gradient(rgb(42, 43, 48), rgb(81,81,86)) rgb(32, 33, 36);
+    box-shadow:
+     0 1px rgba(100, 99, 99, 0.2) inset,
+     0 3px 5px rgba(0,1,6,.5),
+     0 0 1px 1px rgba(0,1,6,.2);
+    transition: .2s ease-in-out;
+  }
+  .MainButton:hover {
+    background: linear-gradient(rgb(126,126,134), rgb(70,71,76)) rgb(126,126,134);
+    text-decoration: none;
+    font-size: 105%;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+  }
+  .MainButton:active {
+    top: 1px;
+    background: linear-gradient(rgb(76,77,82), rgb(56,57,62)) rgb(76,77,82);
+    box-shadow:
+     0 0 1px rgba(0,0,0,.5) inset,
+     0 2px 3px rgba(0,0,0,.5) inset,
+     0 1px 1px rgba(255,255,255,.1);
+     text-decoration: none;
+     color: rgb(241, 245, 245);
+     font-size: 80%;
+    }
+
+    .ChakBox {
+      width: 1.5em;
+      height: 1.5em;
+      vertical-align: middle;
+      text-decoration: none;
+      border: .5em solid rgba(0,0,0,0);
+      border-radius: 100%;
+      background: rgb(245,245,245) linear-gradient(rgb(245,245,245), rgb(188,192,193)) 50% 50% / calc(1.5em + .5em*2) calc(1.5em + .5em*2);
+      box-shadow:
+       inset 0 -3px 10px rgba(255,255,255,1),
+       inset 0 3px 10px rgba(0,0,0,.4),
+       0 2px 4px rgba(0,0,0,.9);
+       z-index: 1;
+      }
+
+
+.banner
+{
+  position: fixed;
+  display: flex;
+  background: rgb(76,77,82);
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+  height: 70px;
+  width: 100%;
+}
+.logo
+{
+  margin-left: auto;
+}
+.main
+{
+  padding-top: 60px;
+ 
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  
+}
+.mainWorcPanel
+{ 
+  position: fixed;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  right: 10px;
+  
+}
+.mainPanel
+{
+  padding-top: 75px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+
+}
+.ImageForm
+{
+ width: 200px;
+ height: 200px;
+ margin: 10px;
+ border-color: black;
+ border-style: double;
+ border-radius: 15px;
+}
+#grid>.ImageContainer
+{
+  
+ 
+  width: 200px;
+  height: 200px;
+  
+}
+#grid
+{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 1vw;
+}
+  

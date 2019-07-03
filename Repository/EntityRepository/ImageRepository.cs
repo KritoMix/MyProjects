@@ -1,20 +1,20 @@
 using System.Collections.Generic;
-
+using System.Linq;
 namespace AdminPanel
 {
   public class ImageRepository
   {
 
-     private List<Image> Images {get;set;}
+    // private List<Image> Images {get;set;}
      public AppContext Context {get;}
-     public ImageRepository()//AppContext context
+     public ImageRepository(AppContext context)
      {
-       // Context = context;
-        Images = new List<Image>();
+        Context = context;
+       // Images = new List<Image>();
      }
      public IEnumerable<Image> GetAll()
      {
-        return Context.Images;
+        return Context.Images.ToList();
      }
      public void Add(Image image)
      {
@@ -24,6 +24,7 @@ namespace AdminPanel
      {
          Context.SaveChanges();
      }
+     /* 
      public void TestAdd(Image image)
      {
        Images.Add(image);
@@ -32,7 +33,7 @@ namespace AdminPanel
      {
         return Images;
      }
-  
+     */
   }
 
 }

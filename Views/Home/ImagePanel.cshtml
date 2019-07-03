@@ -1,5 +1,27 @@
-<div>
-    <h4>Images</h4>
-    <input class="File" >
+@model List<Image> 
 
+  
+  <div class="mainWorcPanel">
+   <form action="/home/ImageUploader" method="post" enctype="multipart/form-data">
+    <input class="MainButton" type="file" name="file" id="file" />
+    <input type="submit" name="submit" value="Загрузить" class="MainButton"/>
+  </form>
+    <a asp-controller="Home" asp-action="ImagePanel" class="MainButton">
+      Удалить
+     </a>
+   
+ 
+   </div>
+
+<div class="mainPanel">
+ @foreach (Image item in Model)
+ {    
+     <div id="grid" class="ImageContainer">
+        <img class="ImageForm" src="@item.Path">
+       
+     </div>
+     <div id="grid">
+        <input type="checkbox" class="ChakBox">
+    </div>
+ }
 </div>

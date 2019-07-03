@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdminPanel
@@ -29,10 +30,11 @@ namespace AdminPanel
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
-            //services.AddDbContext<AppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+          
+            services.AddDbContext<AppContext>(options => options.UseSqlServer(@"Server=PC-LITE\SQLEXPRESS;Database=NewDataBase;Trusted_Connection=True;MultipleActiveResultSets=true;"));
             services.AddTransient<ImageRepository,ImageRepository>();
             services.AddTransient<ImageSizeRepository,ImageSizeRepository>();
+            services.AddTransient<ImageGenerator,ImageGenerator>();
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();
@@ -58,7 +60,7 @@ namespace AdminPanel
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            
+           
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -70,6 +72,7 @@ namespace AdminPanel
                 routes.MapRoute(
                     name: "Imag",
                     template: "{controller=Home}/{action=ImagePanel}");
+               
             });
         }
     }

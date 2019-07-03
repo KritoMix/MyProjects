@@ -3,11 +3,11 @@ namespace AdminPanel
 {
   public class Thrumbneil
   {
-      public Guid Id {get;set;}
-     // public Guid ImageId {get;set;}
+      public int Id {get;set;}
+      public int ImageId {get;set;}
       public string Name {get;set;}
       public string Path {get;set;}
-     // public virtual Image image {get;set;}
+      public Image image {get;set;}
 
   }
 
