@@ -29,3 +29,7 @@ c:\Project\obj\Debug\netcoreapp2.2\AdminPanel.dll
 c:\Project\obj\Debug\netcoreapp2.2\AdminPanel.pdb
 C:\Project\obj\Debug\netcoreapp2.2\AdminPanel.csproj.CopyComplete
 c:\Project\obj\Debug\netcoreapp2.2\Razor\Views\Home\ImagePanel.g.cshtml.cs
+c:\Project\obj\Debug\netcoreapp2.2\Razor\Views\TrumbneilSize\Size.g.cshtml.cs
+C:\Project\obj\Debug\netcoreapp2.2\Razor\Views\TrumbneilSize\Edit.g.cshtml.cs
+C:\Project\obj\Debug\netcoreapp2.2\Razor\Views\TrumbneilSize\Details.g.cshtml.cs
+C:\Project\obj\Debug\netcoreapp2.2\Razor\Views\TrumbneilSize\EditSize.g.cshtml.cs

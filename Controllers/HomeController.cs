@@ -16,8 +16,9 @@ namespace AdminPanel
     {
        public ImageRepository ImageRepository {get;set;} 
        public ImageSizeRepository ImageSizeRepository {get;set;}
+        
        public HomeController(ImageRepository imageRepository, ImageSizeRepository imageSizeRepository)
-       {
+       {     
               ImageRepository = imageRepository;
               ImageSizeRepository = imageSizeRepository;
        }
@@ -30,10 +31,29 @@ namespace AdminPanel
         {
             return View();
         }
-        public IActionResult ImagePanel()
-        {
+       public IActionResult ImagePanel()
+       {   
            var Images = ImageRepository.GetAll().ToList();
            return View(Images);
+       }
+       
+       
+        public IActionResult ImageDelete()
+        {
+           var Images = ImageRepository.GetAll().ToList();
+           foreach(Image i in Images)
+           {
+               ImageRepository.Remove(i);
+           }
+             var Trumb1 = ImageSizeRepository.GetAll().ToList();
+            foreach(ThrumbneilSize n in Trumb1)
+            {
+               ImageSizeRepository.Remove(n);
+            }          
+            
+           ImageRepository.Save();
+           ImageSizeRepository.Save();
+           return RedirectToAction("ImagePanel");
         }
         public IActionResult ImageUploader(IFormFile file)
         {

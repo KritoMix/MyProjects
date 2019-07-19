@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[2.2.4, )"
@@ -60,13 +64,13 @@
               "version": "[2.2.0, )",
               "autoReferenced": true
             },
-            "NCoreUtils.Images.ImageMagick": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
             "SixLabors.ImageSharp": {
               "target": "Package",
               "version": "[1.0.0-beta0006, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[4.3.1, )"
             }
           },
           "imports": [

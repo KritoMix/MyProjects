@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using Microsoft.EntityFrameworkCore;
 namespace AdminPanel
 {
   public class ImageRepository
@@ -14,7 +17,7 @@ namespace AdminPanel
      }
      public IEnumerable<Image> GetAll()
      {
-        return Context.Images.ToList();
+        return Context.Images.Include(x=>x.Thrumbneils).ToList();
      }
      public void Add(Image image)
      {
@@ -23,6 +26,10 @@ namespace AdminPanel
      public void Save()
      {
          Context.SaveChanges();
+     }
+     public void Remove(Image image)
+     {
+      Context.Remove(image);
      }
      /* 
      public void TestAdd(Image image)

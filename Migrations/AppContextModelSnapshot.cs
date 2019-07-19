@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace AdminPanel.Migrations
+namespace AdminPanel
 {
     [DbContext(typeof(AppContext))]
     partial class AppContextModelSnapshot : ModelSnapshot
@@ -33,7 +33,30 @@ namespace AdminPanel.Migrations
                     b.ToTable("Images");
                 });
 
-            modelBuilder.Entity("AdminPanel.SizeImage", b =>
+            modelBuilder.Entity("AdminPanel.Thrumbneil", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ImageId");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Path");
+
+                    b.Property<int>("ThrumbneilSizeId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ImageId");
+
+                    b.HasIndex("ThrumbneilSizeId");
+
+                    b.ToTable("Thrumbneils");
+                });
+
+            modelBuilder.Entity("AdminPanel.ThrumbneilSize", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -47,33 +70,19 @@ namespace AdminPanel.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ImageSizes");
+                    b.ToTable("ThrumbneilSizes");
                 });
 
             modelBuilder.Entity("AdminPanel.Thrumbneil", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ImageId");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Path");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ImageId");
-
-                    b.ToTable("Thrumbneils");
-                });
-
-            modelBuilder.Entity("AdminPanel.Thrumbneil", b =>
-                {
-                    b.HasOne("AdminPanel.Image", "image")
+                    b.HasOne("AdminPanel.Image", "Image")
                         .WithMany("Thrumbneils")
                         .HasForeignKey("ImageId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AdminPanel.ThrumbneilSize", "ThrumbneilSize")
+                        .WithMany("ThrumbneilSizes")
+                        .HasForeignKey("ThrumbneilSizeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
