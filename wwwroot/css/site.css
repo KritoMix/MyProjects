@@ -46,10 +46,10 @@ for details on configuring this project to bundle and minify static web assets. 
    font-size: 95%;
   }
   .MainButton {
-    margin: 5px;
+    margin: 10px;
     position: relative;
     display: inline-block;
-    font-size: 80%;
+    font-size: 90%;
     font-weight: 700;
     color: rgb(175, 175, 184);
     text-decoration: none;
@@ -70,6 +70,7 @@ for details on configuring this project to bundle and minify static web assets. 
     font-size: 105%;
     color: rgb(255, 255, 255);
     font-weight: bold;
+    padding: 10px;
   }
   .MainButton:active {
     top: 1px;
@@ -110,6 +111,8 @@ for details on configuring this project to bundle and minify static web assets. 
   padding-left: 20px;
   height: 70px;
   width: 100%;
+  z-index: 3;
+  box-shadow: -1px 4px 6px rgb(121, 117, 117);
 }
 .logo
 {
@@ -133,46 +136,68 @@ for details on configuring this project to bundle and minify static web assets. 
   align-items: center;
   height: 100px;
   width: 100%;
-  right: 10px;
-  
+  z-index: 2;
+  background: rgba(153, 163, 172, 0.61);
 }
 .mainPanel
 {
-  padding-top: 75px;
+  padding-top: 105px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   width: 100%;
-
+  
 }
+/*Контейнер с Image*/
+
 .ImageForm
 {
- width: 200px;
- height: 200px;
+ width: 250px; 
+ height: auto;
  margin: 10px;
  border-color: black;
  border-style: double;
- border-radius: 15px;
+ border-radius: 15px 5px 15px 15px;
 }
-#grid>.ImageContainer
+.ImageForm:active
+{ position: fixed;
+  left: 15%;
+  right: 15%;
+  top:15%;
+  bottom: 15%;
+  width: 70%;
+  height: 70%;
+  z-index: 4;
+}
+.ImageContainer
 {
-  
- 
-  width: 200px;
-  height: 200px;
-  
+  position: relative;
+  display: flex;
+  width: 250px;
+  height: auto;
+  margin: 10px;
+  flex: row wrap;
 }
-#grid
+.ImageContainer:active
+{ position: fixed;
+  left: 15%;
+  right: 15%;
+  top:15%;
+  bottom: auto;
+  width: 70%;
+  height: 70%;
+  z-index: 4;
+}
+
+.RemoveImage
 {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-gap: 1vw;
+  flex: 1;
+  position: absolute;
+  z-index: 1;
+  right: 12px;
+  top:12px;
 }
-  .dialogShow 
-  {
-   z-index: 999;
-  }
+  
 
 
 

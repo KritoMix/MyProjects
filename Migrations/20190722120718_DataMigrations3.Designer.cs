@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace AdminPanel
+namespace AdminPanel.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20190703095041_migrateBase")]
-    partial class migrateBase
+    [Migration("20190722120718_DataMigrations3")]
+    partial class DataMigrations3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,6 +33,27 @@ namespace AdminPanel
                     b.HasKey("Id");
 
                     b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("AdminPanel.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Dictionary");
+
+                    b.Property<int>("ImageId");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("Price");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ImageId");
+
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("AdminPanel.Thrumbneil", b =>
@@ -73,6 +94,14 @@ namespace AdminPanel
                     b.HasKey("Id");
 
                     b.ToTable("ThrumbneilSizes");
+                });
+
+            modelBuilder.Entity("AdminPanel.Product", b =>
+                {
+                    b.HasOne("AdminPanel.Image", "Image")
+                        .WithMany()
+                        .HasForeignKey("ImageId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("AdminPanel.Thrumbneil", b =>

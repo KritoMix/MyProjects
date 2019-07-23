@@ -31,10 +31,10 @@ namespace AdminPanel
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
           
-            services.AddDbContext<AppContext>(options => options.UseSqlServer(@"Server=PC-LITE\SQLEXPRESS;Database=Base;Trusted_Connection=True;MultipleActiveResultSets=true;")); //Configuration.GetConnectionString("Connectioonn")
+            services.AddDbContext<AppContext>(options => options.UseSqlServer(@"Server=PC-LITE\SQLEXPRESS;Database=Base3;Trusted_Connection=True;MultipleActiveResultSets=true;")); //Configuration.GetConnectionString("Connectioonn")
+            services.AddTransient<ProductRepository,ProductRepository>();
             services.AddTransient<ImageRepository,ImageRepository>();
-            services.AddTransient<ImageSizeRepository,ImageSizeRepository>();
-            services.AddTransient<TrumbneilRepository,TrumbneilRepository>();     
+            services.AddTransient<ImageSizeRepository,ImageSizeRepository>();    
             services.AddTransient<ImageGenerator,ImageGenerator>();
             services.AddMvc();
             services.AddMemoryCache();
@@ -66,10 +66,7 @@ namespace AdminPanel
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}");
-                     routes.MapRoute(
-                    name: "Image",
-                    template: "{action=ImagePanel}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

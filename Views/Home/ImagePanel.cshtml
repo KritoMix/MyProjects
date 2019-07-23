@@ -6,22 +6,20 @@
     <input class="MainButton" type="file" name="file" id="file" />
     <input type="submit" name="submit" value="Загрузить" class="MainButton"/>
   </form>
-    <a id="DeleteImage" asp-controller="Home" asp-action="ImageDelete" class="MainButton">
-      Удалить
-     </a>
-   
- 
-   </div>
+ </div>
 
 <div class="mainPanel">
  @foreach (Image item in Model)
- {    
-     <div id="grid" class="ImageContainer">
-        <img class="ImageForm" src="@item.Path">
-       
-     </div>
-     <div id="grid">
-        <input id="chec1" type="checkbox" class="ChakBox">
-    </div>
+ {  
+       <div class="ImageContainer">
+          <img class="ImageForm" src="@item.Path">
+        
+         <form class="RemoveImage" action="/Home/RemoveImage" method="post">
+           <input type="hidden" name="Id" value="@item.Id"/> 
+           <button type="submit" class="btn btn-danger btn-sm ">X</button>
+         </form>
+       </div>
+        
+      
  }
 </div>

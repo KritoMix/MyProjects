@@ -3,11 +3,7 @@
 
 // Write your JavaScript code.
 
-$(document).ready(function () 
-{ 
-    $("#AddSizeDialog").click(function() {$("#DialogSize").show()});
-    $("#closeDialog").click(function(){$('#DialogSize').hide();})
-});
+
 
 
 

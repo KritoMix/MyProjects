@@ -1,0 +1,36 @@
+@model Product
+ 
+       
+ <div>
+  
+   <form  action="/Product/SaveProduct" method="post">
+     <table class="table table-border table-condensed">
+     <input type="hidden" asp-for="Id"/>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+       <tr>
+          <td> <label>Имя</label> </td>
+           <td><input asp-for="Name" class="form-control-sm"/> </td>
+       </tr>
+       
+        <tr> 
+          <td> <label >Описание</label> </td>
+          <td><input asp-for="Dictionary" class="form-control-sm"/> </td>
+        </tr>
+       
+        <tr> 
+        <td> <label>Цена</label></td>
+        <td> <input asp-for="Price" class="form-control-sm"/></td>
+        </tr>
+      </table>
+        <button class="btn btn-primary" type="submit">Сохранить</button>
+        <a  class="btn btn-primary" asp-controller="TrumbneilSize" asp-action="Size">Вурнуться</a>
+       
+   
+    
+   </form>
+     
+ </div>

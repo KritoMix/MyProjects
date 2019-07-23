@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace AdminPanel
+namespace AdminPanel.Migrations
 {
-    public partial class migrateBase : Migration
+    public partial class DataMigrations3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -37,6 +37,28 @@ namespace AdminPanel
                 });
 
             migrationBuilder.CreateTable(
+                name: "Product",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    Dictionary = table.Column<string>(nullable: true),
+                    Price = table.Column<int>(nullable: false),
+                    ImageId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Product", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Product_Images_ImageId",
+                        column: x => x.ImageId,
+                        principalTable: "Images",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Thrumbneils",
                 columns: table => new
                 {
@@ -65,6 +87,11 @@ namespace AdminPanel
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Product_ImageId",
+                table: "Product",
+                column: "ImageId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Thrumbneils_ImageId",
                 table: "Thrumbneils",
                 column: "ImageId");
@@ -77,6 +104,9 @@ namespace AdminPanel
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Product");
+
             migrationBuilder.DropTable(
                 name: "Thrumbneils");
 

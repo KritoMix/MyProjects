@@ -3,7 +3,7 @@
 using System.IO;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Collections.Generic;
 
 
 namespace AdminPanel
@@ -17,39 +17,32 @@ namespace AdminPanel
               ImageRepository = imageRepository;
               ImageSizeRepository = imageSizeRepository;
        }
-        public IActionResult Size()
-       {  TrumbneilSizeVM TSVM = new TrumbneilSizeVM();
-          TSVM.ThrumbneilSizes = ImageSizeRepository.GetAll().ToList();
-          return View(TSVM);
-       }
+        public IActionResult Size() => View(ImageSizeRepository.GetAll().ToList());
       
       [HttpPost]
-        public IActionResult Edit(int Id)
-       {
-           return View(ImageSizeRepository.Context.ThrumbneilSizes.FirstOrDefault(i=>i.Id==Id)); 
+        public IActionResult Edit(int id)
+       {   
+           ThrumbneilSize thrumbneilSize = ImageSizeRepository.Context.ThrumbneilSizes.FirstOrDefault(i=>i.Id==id);
+           return View(thrumbneilSize); 
+          
        }
        
-        public IActionResult Create(TrumbneilSizeVM TSVM)
-        {   
-           TSVM.ThrumbneilSize = new ThrumbneilSize(){Width=200,Height=200};
-          
-           return View(TSVM);
-           // return View("Edit",new ThrumbneilSize());  
-        }
-        public IActionResult Save(TrumbneilSizeVM size,bool Check)
+        public IActionResult Create() => View("Edit",new ThrumbneilSize());
+        
+        public IActionResult Save(ThrumbneilSize size,bool Check)
         {
            var chec = Request.Form["Check"];
            //Создать новый размер
-           if(size.ThrumbneilSize.Id == 0)
+           if(size.Id == 0)
             {
                if(chec.Count == 0)
                {
                  ImageUploader up = new ImageUploader(new ImageGenerator(),ImageSizeRepository,ImageRepository);
-                 up.TrumbneilsCreate(size.ThrumbneilSize);
+                 up.TrumbneilsCreate(size);
                }
                else
                {
-                 ImageSizeRepository.Add(size.ThrumbneilSize);
+                 ImageSizeRepository.Add(size);
                  ImageSizeRepository.Save();
                }
               
@@ -60,9 +53,9 @@ namespace AdminPanel
                ThrumbneilSize Size = ImageSizeRepository.GetAll().FirstOrDefault(s=>s.Id ==size.Id );
                    if(Size != null)
                    {
-                    Size.Height = size.ThrumbneilSize.Height;
-                    Size.Width = size.ThrumbneilSize.Width;
-                    Size.NameSize = size.ThrumbneilSize.NameSize;
+                    Size.Height = size.Height;
+                    Size.Width = size.Width;
+                    Size.NameSize = size.NameSize;
                    }
                     ImageUploader up = new ImageUploader(new ImageGenerator(),ImageSizeRepository,ImageRepository);
                    

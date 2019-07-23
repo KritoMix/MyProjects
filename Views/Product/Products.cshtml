@@ -1,0 +1,32 @@
+@model List<Product>
+
+    <div class="mainWorcPanel"> 
+      <a  asp-action="CreateProduct" class="MainButton" >Добавить</a>
+</div>
+  
+<div class="mainPanel">
+<table class="table table-border table-condensed">
+  <tr>
+      <th>Имя</th>
+      <th>Ширина</th>
+      <th>Высота</th>
+      <th>Редактировать</th>
+  </tr>
+  @foreach (Product item in Model)
+  {
+      <tr>
+           <td>@item.Name.ToString()</td>
+           <td>@item.Dictionary.ToString()</td>
+           <td>@item.Price.ToString()</td>
+              <td >
+                 <form asp-action="RemoveProduct"  method="post"> 
+                          <button asp-action="EditProduct" asp-route-Id="@item.Id" class="btn btn-sm btn-warning">Изменить</button>
+                          <input type="hidden" name="Id" value="@item.Id"/>  
+                          <button type="submit" class="btn btn-danger btn-sm ">X</button>
+                 </form>
+              </td>
+      </tr>
+  
+  }
+</table>
+</div>

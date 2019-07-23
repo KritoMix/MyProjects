@@ -77,8 +77,26 @@ namespace AdminPanel
           // IFormFile forms = formFile;
            return RedirectToAction("ImagePanel");
         }
-        public IActionResult RemoveImage()
-        {
+        //Доделать удаление
+        public IActionResult RemoveImage(Image image)
+        {   //Получаем Image по Id
+            var Imag = ImageRepository.GetAll().Single(s=>s.Id == image.Id);
+             //Удаляем миниатюры этого Image
+             foreach(Thrumbneil i in Imag.Thrumbneils)
+              {
+                FileInfo InfoThrumb = new FileInfo("wwwroot\\"+i.Path.Substring(3));
+                InfoThrumb.Delete();
+                //Удаляем из бд миниатюры
+                ImageRepository.Context.Thrumbneils.Remove(i);
+              }    
+            
+              //Удаляем сам Image
+              FileInfo Info = new FileInfo("wwwroot\\"+Imag.Path.Substring(3));
+              Info.Delete(); 
+              //Удаляем Image из БД
+              ImageRepository.Remove(Imag);
+              ImageRepository.Save();
+               
             return RedirectToAction("ImagePanel");
         }
        

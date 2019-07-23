@@ -1,29 +1,29 @@
-@model TrumbneilSizeVM
+@model List<ThrumbneilSize>
  
 
 <div class="mainWorcPanel"> 
-      <button id ="AddSizeDialog" class="btn btn-primary" >Add Size</button>
+      <a  asp-action="Create" class="MainButton" >Добавить</a>
 </div>
   
-<div class="WorcPanel">
-<table class="table table-striped table-border table-condensed">
+<div class="mainPanel">
+<table class="table table-border table-condensed">
   <tr>
-      <th>Name</th>
-      <th>Width</th>
-      <th>Hide</th>
-      <th>Edits Panel</th>
+      <th>Имя</th>
+      <th>Ширина</th>
+      <th>Высота</th>
+      <th>Редактировать</th>
   </tr>
-  @foreach (ThrumbneilSize item in Model.ThrumbneilSizes)
+  @foreach (ThrumbneilSize item in Model)
   {
       <tr>
            <td>@item.NameSize</td>
            <td>@item.Width.ToString()</td>
            <td>@item.Height.ToString()</td>
-              <td class="text-center">
-                 <form asp-action="RemoveSize"  method="post">
-                         <input type="hidden" name="Id" value="@item.Id"/>  
-                         <button type="submit" class="btn btn-danger btn-sm"> Delete</button>
-                         <a asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
+              <td >
+                 <form asp-action="RemoveSize"  method="post"> 
+                          <button asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-sm btn-warning">Изменить</button>
+                          <input type="hidden" name="Id" value="@item.Id"/>  
+                          <button type="submit" class="btn btn-danger btn-sm ">X</button>
                  </form>
               </td>
       </tr>
@@ -31,52 +31,3 @@
   }
 </table>
 </div>
-  <!--<div class="DialogSize">
-      <form  action="/TrumbneilSize/Save" method="post">
-      
-        <div class="form-group">
-           <label asp-for="ThrumbneilSize.Width"></label>
-           <input asp-for="ThrumbneilSize.Width" class="form-control-sm"/>
-       </div>
-       <div class="form-group">
-           <label asp-for="ThrumbneilSize.Height"></label>
-           <input asp-for="ThrumbneilSize.Height" class="form-control-sm"/>
-       </div>
-         <button class="btn btn-primary" type="submit">Save</button>
-        <a  class="btn btn-primary" asp-controller="TrumbneilSize" asp-action="Size">Cencel</a>
-   </form>
-  </div>
--->
-
-
-
-<div id="DialogSize" class="modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-     
-      <div class="modal-header">
-        <h4 class="modal-title">Добавить новый размер</h4>
-        <button id="closeDialog" class="close" type="button">X</button>
-      </div>
-     
-      <div class="modal-body">
-       <form  action="/TrumbneilSize/Save" method="post">
-      
-        <div class="form-group">
-           <label asp-for="ThrumbneilSize.Width"></label>
-           <input asp-for="ThrumbneilSize.Width" class="form-control-sm"/>
-       </div>
-       <div class="form-group">
-           <label asp-for="ThrumbneilSize.Height"></label>
-           <input asp-for="ThrumbneilSize.Height" class="form-control-sm"/>
-       </div>
-        <div class="modal-footer">
-         <button class="btn btn-primary" type="submit">Save</button>
-        </div>
-      </form>
-      </div>
-    
-      
-    </div>
-  </div>
-</div> 
