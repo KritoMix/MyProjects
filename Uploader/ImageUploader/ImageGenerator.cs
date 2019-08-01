@@ -18,7 +18,7 @@ namespace AdminPanel
         List<Thrumbneil> Thrumbneils = new List<Thrumbneil>();
         foreach(Image i in Images)
         {
-           string FileMiny = DateTime.Now.ToBinary().ToString()+"_"+size.Width+"_"+size.Height +".png";
+           string FileMiny = DateTime.Now.ToBinary().ToString()+"_"+size.Width+"_"+size.Height +".jpeg";
            string Path =".."+ PathFile.Substring(18)+FileMiny; //Заменить в срочном порядке
            byte[] CreateImage = File.ReadAllBytes(PathFile+i.Name);
             using (imag.Image<imag.PixelFormats.Rgba32> image = imag.Image.Load(CreateImage))
@@ -44,11 +44,11 @@ namespace AdminPanel
         //Назначить новый путь и имя картинке 
         int Namb = i.Name.IndexOf("_"); 
         string NewName = i.Name.Substring(0,Namb+1);
-        NewName+=size.NameSize+".png";
+        NewName+=size.NameSize+".jpeg";
         i.Name = NewName;
         int Namb1 = i.Path.IndexOf("_"); 
         string NewPath = i.Path.Substring(0,Namb1+1);
-        NewPath += size.NameSize+".png";
+        NewPath += size.NameSize+".jpeg";
         i.Path = NewPath;
         //Записать по новому пути и с новым именем
         using (imag.Image<imag.PixelFormats.Rgba32> image = imag.Image.Load(CreateImage))
@@ -67,14 +67,14 @@ namespace AdminPanel
          List<Thrumbneil> Thrumbneils = new List<Thrumbneil>();
         foreach(ThrumbneilSize i in Size)
         {
-               string FileMiny = DateTime.Now.ToBinary().ToString()+"_"+i.Width+"_"+i.Height +".png";
+               string FileMiny = DateTime.Now.ToBinary().ToString()+"_"+i.Width+"_"+i.Height +".jpeg";
                byte[] CreateImage = File.ReadAllBytes(im.Path+im.Name);
                 using (imag.Image<imag.PixelFormats.Rgba32> image = imag.Image.Load(CreateImage))
                  {
                     image.Mutate(x => x.Resize(i.Width, i.Height));
                     image.Save(im.Path + FileMiny); 
                  }
-               string Path =".."+ im.Path.Substring(18)+FileMiny;
+               string Path = im.Path.Substring(18)+FileMiny;
                Thrumbneils.Add(new Thrumbneil(){ Name = FileMiny, Path = Path, ThrumbneilSize = i});
         }
              return Thrumbneils;

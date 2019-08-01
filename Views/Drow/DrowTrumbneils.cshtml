@@ -1,0 +1,20 @@
+@model List<Thrumbneil> 
+    
+<div class="mainPanel">
+ 
+ @foreach (Thrumbneil item in Model)
+ { 
+       <div class="ImageContainer">
+         <form class="RemoveImage" action="/Home/RemoveImage" method="post">
+           <input type="hidden" name="Id" value="@item.Id"/> 
+           <button type="submit" class="btn btn-danger btn-sm ">X</button>
+         </form>
+        <img class="ImageForm" src="@item.Path">
+       </div>   
+ }
+
+</div>
+ 
+ <div class="Pagin">
+       <pioneer-pagination info="@ViewBag.PaginatedMeta" route="/Home/ImagePanel"></pioneer-pagination>
+</div>

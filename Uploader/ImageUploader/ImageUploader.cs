@@ -24,11 +24,11 @@ namespace AdminPanel
        public override void Upload(imag.Image<imag.PixelFormats.Rgba32> im)
        {
           string Path = GenerateFilePath();
-          string FileName = DateTime.Now.ToBinary().ToString()+"_"+im.Width+"_"+im.Height +".png";
+          string FileName = DateTime.Now.ToBinary().ToString()+"_"+im.Width+"_"+im.Height +".jpeg";
           
           using(FileStream file = new FileStream(Path+FileName,FileMode.Create))
           {
-              imag.ImageExtensions.SaveAsPng(im,file); 
+              imag.ImageExtensions.SaveAsJpeg(im,file); 
               
           }
             
@@ -36,7 +36,7 @@ namespace AdminPanel
             List<Thrumbneil> Trumbneils = new List<Thrumbneil>();
             Trumbneils = ImageGenerator.Generate(image,ImageSizeRepository.GetAll().ToList());
             image.Thrumbneils = Trumbneils;
-             image.Path =".."+ image.Path.Substring(18)+image.Name; //Заменить в срочном порядке
+             image.Path =image.Path.Substring(18)+image.Name; //Заменить в срочном порядке
             
             ImageRepository.Add(image);
             

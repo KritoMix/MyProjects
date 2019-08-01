@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width"/>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="~/css/site.css" />
+     <link rel="stylesheet" href="~/css/pioneer-pagination.css" />
     <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css"/>
     
    
@@ -11,17 +12,17 @@
     <script src="/lib/jquery/dist/jquery.js" type="text/javascript"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/js/jsscript.js" type="text/javascript"></script>
-   
+    
 </head>
-<body>
-    <div class ="banner">
+<body class="Avatar">
+ <div class ="banner">
          <a asp-controller="Home" asp-action="Index" class="Navbutton">
          Главная
         </a>
         <a asp-controller="Product" asp-action="Products" class="Navbutton">
          Продукты
         </a>
-         <a asp-controller="Home" asp-action="ImagePanel" class="Navbutton">
+         <a asp-controller="Drow" asp-action="ImagePanel" class="Navbutton">
          Картинки
          </a>
             <a asp-controller="TrumbneilSize" asp-action="Size" class="Navbutton">
@@ -29,7 +30,11 @@
          </a> 
         
 
-  </div>
+  </div >
+
+
+    
+    
     <div class="main">
            @RenderBody()
     </div>

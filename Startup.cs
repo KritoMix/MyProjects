@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
+using Pioneer.Pagination;
 
 namespace AdminPanel
 {
@@ -31,7 +32,8 @@ namespace AdminPanel
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
           
-            services.AddDbContext<AppContext>(options => options.UseSqlServer(@"Server=PC-LITE\SQLEXPRESS;Database=Base3;Trusted_Connection=True;MultipleActiveResultSets=true;")); //Configuration.GetConnectionString("Connectioonn")
+            services. AddTransient<IPaginatedMetaService,PaginatedMetaService>();
+            services.AddDbContext<AppContext>(options => options.UseSqlServer(@"Server=PC-LITE\SQLEXPRESS;Database=Base5;Trusted_Connection=True;MultipleActiveResultSets=true;")); //Configuration.GetConnectionString("Connectioonn")
             services.AddTransient<ProductRepository,ProductRepository>();
             services.AddTransient<ImageRepository,ImageRepository>();
             services.AddTransient<ImageSizeRepository,ImageSizeRepository>();    
@@ -49,10 +51,11 @@ namespace AdminPanel
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+               
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -66,7 +69,7 @@ namespace AdminPanel
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=home}/{action=Index}/{id?}");
             });
         }
     }

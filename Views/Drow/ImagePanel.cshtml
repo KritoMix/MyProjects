@@ -1,25 +1,39 @@
-@model List<Image> 
-
+ @model List<Image> 
   
   <div class="mainWorcPanel">
    <form action="/home/ImageUploader" method="post" enctype="multipart/form-data">
     <input class="MainButton" type="file" name="file" id="file" />
     <input type="submit" name="submit" value="Загрузить" class="MainButton"/>
   </form>
+  
+ 
  </div>
 
+
+
+    
 <div class="mainPanel">
+ 
  @foreach (Image item in Model)
- {  
+ { 
        <div class="ImageContainer">
-          <img class="ImageForm" src="@item.Path">
-        
          <form class="RemoveImage" action="/Home/RemoveImage" method="post">
            <input type="hidden" name="Id" value="@item.Id"/> 
            <button type="submit" class="btn btn-danger btn-sm ">X</button>
          </form>
-       </div>
-        
-      
+        <img class="ImageForm" src="@item.Path">
+       </div>   
  }
+
 </div>
+ 
+ <div class="Pagin">
+       <pioneer-pagination info="@ViewBag.PaginatedMeta" route="/ImagePanel"></pioneer-pagination>
+       
+       <img src="..\Upload\2019\7\-8586374641935870833_400_267.jpeg">
+</div>
+ 
+
+ 
+
+ 

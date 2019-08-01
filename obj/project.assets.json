@@ -2734,7 +2734,7 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/11.0.2": {
+      "Newtonsoft.Json/12.0.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -2754,6 +2754,18 @@
         },
         "runtime": {
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
+        }
+      },
+      "Pioneer.Pagination/2.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Razor.Runtime": "2.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Pioneer.Pagination.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Pioneer.Pagination.dll": {}
         }
       },
       "popper.js/1.14.0": {
@@ -7448,10 +7460,10 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/11.0.2": {
-      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+    "Newtonsoft.Json/12.0.2": {
+      "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
       "type": "package",
-      "path": "newtonsoft.json/11.0.2",
+      "path": "newtonsoft.json/12.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7474,7 +7486,7 @@
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.11.0.2.nupkg.sha512",
+        "newtonsoft.json.12.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
       ]
     },
@@ -7491,6 +7503,18 @@
         "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.1.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "Pioneer.Pagination/2.1.1": {
+      "sha512": "4oZ5weNIzQ0VNGKMHUMu7VS2VDZk8ZluKJmLb7nK0umh939v33P+dVSDX72myYE0Ujl+oGHViNYr0cqt0Lypxw==",
+      "type": "package",
+      "path": "pioneer.pagination/2.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Pioneer.Pagination.dll",
+        "pioneer.pagination.2.1.1.nupkg.sha512",
+        "pioneer.pagination.nuspec"
       ]
     },
     "popper.js/1.14.0": {
@@ -12258,6 +12282,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.2.4",
       "Microsoft.EntityFrameworkCore.Tools >= 2.2.4",
       "Microsoft.NETCore.App >= 2.2.0",
+      "Newtonsoft.Json >= 12.0.2",
+      "Pioneer.Pagination >= 2.1.1",
       "SixLabors.ImageSharp >= 1.0.0-beta0006",
       "bootstrap >= 4.3.1"
     ]
@@ -12325,6 +12351,14 @@
             "target": "Package",
             "version": "[2.2.0, )",
             "autoReferenced": true
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[12.0.2, )"
+          },
+          "Pioneer.Pagination": {
+            "target": "Package",
+            "version": "[2.1.1, )"
           },
           "SixLabors.ImageSharp": {
             "target": "Package",

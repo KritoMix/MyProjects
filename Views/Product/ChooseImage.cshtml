@@ -1,0 +1,32 @@
+@model ProductVM
+
+<div class="mainWorcPanel">
+    <form   action="/Product/EditProduct" method="post">
+            <input type="hidden"  name="Id" value="@Model.ProductM.Id"/> 
+            <input type="hidden"  name="Name" value="@Model.ProductM.Name"/> 
+            <input type="hidden"  name="Dictionary" value="@Model.ProductM.Dictionary"/> 
+            <input type="hidden"  name="Price" value="@Model.ProductM.Price"/> 
+           <input type="hidden"  name="ImageId" value="@Model.ProductM.ImageId"/> 
+           <button type="submit" class="MainButton">Вернуться</button>
+   </form>
+</div>
+
+<div class="mainPanel">
+ @foreach (Image item in Model.Images)
+ {  
+       <div class="ImageContainer">
+         
+         <img class="ImageForm" src="@item.Path">
+         <form class="RemoveImage" action="/Product/AddImageToProduct" method="post">
+            <input type="hidden"  name="Id" value="@Model.ProductM.Id"/> 
+           <input type="hidden"  name="Name" value="@Model.ProductM.Name"/> 
+            <input type="hidden"  name="Dictionary" value="@Model.ProductM.Dictionary"/> 
+            <input type="hidden"  name="Price" value="@Model.ProductM.Price"/> 
+           <input type="hidden"  name="Id1" value="@item.Id"/> 
+           <button type="submit" class="btn btn-danger btn-sm ">Выбрать</button>
+         </form>
+       </div>
+        
+      
+ }
+</div>

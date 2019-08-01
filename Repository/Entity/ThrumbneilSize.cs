@@ -5,6 +5,11 @@ namespace AdminPanel
 {
   public class ThrumbneilSize
   {
+    public ThrumbneilSize()
+    {
+      Width = 10;
+      Height = 10;
+    }
     public int Id {get;set;}
     public string NameSize {get;set;}
     public int Height {get;set;}

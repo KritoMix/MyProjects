@@ -76,7 +76,7 @@ namespace AdminPanel
            {
               foreach(Thrumbneil i in Sizes.ThrumbneilSizes)
               {
-                FileInfo Info = new FileInfo("wwwroot\\"+i.Path.Substring(3));
+                FileInfo Info = new FileInfo("wwwroot\\"+i.Path.Substring(1));
                 Info.Delete();
               } 
            

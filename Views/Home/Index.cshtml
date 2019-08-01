@@ -1,10 +1,17 @@
 ﻿
 
-<div class="text-center">
-  
-      <a asp-controller="Home" asp-action="ImagePanel">
-         Загрузить
-     </a>
-</div>
+  <div class="apiUrl">
+       <h1>Главная страница</h2>
+       <h3>API для GET запросов с ответом в формате Json</h3>
+    
+        <a asp-controller="Api" asp-action="GetAllProduct">-Получить все продукты</a>
+        <a asp-controller="Api" asp-action="GetAllImage">-Получить все Картинки </a>
+        <a asp-controller="Api" asp-action="GetAllTrumbneilSize">-Получить все Размеры</a>
+        <a asp-controller="Api" asp-action="GetAllImageToTrumbneils">-Получить все картинки с миниатюрами</a>
+        <a asp-controller="Api" asp-action="GetAllProductToImage">-Получить все Продукты с Картинками</a>
+        <a asp-controller="Api" asp-action="GetAllSizeToTrumbneils">-Получить все Размеры с Миниатюрами</a> 
+     
+    
+  </div> 
  
      

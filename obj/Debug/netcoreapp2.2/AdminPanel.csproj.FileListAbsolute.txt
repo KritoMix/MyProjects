@@ -28,8 +28,11 @@ c:\Project\obj\Debug\netcoreapp2.2\AdminPanel.Views.pdb
 c:\Project\obj\Debug\netcoreapp2.2\AdminPanel.dll
 c:\Project\obj\Debug\netcoreapp2.2\AdminPanel.pdb
 C:\Project\obj\Debug\netcoreapp2.2\AdminPanel.csproj.CopyComplete
-c:\Project\obj\Debug\netcoreapp2.2\Razor\Views\Home\ImagePanel.g.cshtml.cs
 c:\Project\obj\Debug\netcoreapp2.2\Razor\Views\TrumbneilSize\Size.g.cshtml.cs
 C:\Project\obj\Debug\netcoreapp2.2\Razor\Views\TrumbneilSize\Edit.g.cshtml.cs
 c:\Project\obj\Debug\netcoreapp2.2\Razor\Views\Product\EditProduct.g.cshtml.cs
 c:\Project\obj\Debug\netcoreapp2.2\Razor\Views\Product\Products.g.cshtml.cs
+c:\Project\obj\Debug\netcoreapp2.2\Razor\Views\Product\ChooseImage.g.cshtml.cs
+c:\Project\obj\Debug\netcoreapp2.2\Razor\Views\Drow\DrowPictures.g.cshtml.cs
+c:\Project\obj\Debug\netcoreapp2.2\Razor\Views\Drow\DrowTrumbneils.g.cshtml.cs
+c:\Project\obj\Debug\netcoreapp2.2\Razor\Views\Drow\ImagePanel.g.cshtml.cs

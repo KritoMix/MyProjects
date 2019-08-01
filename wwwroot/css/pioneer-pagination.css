@@ -1,0 +1,57 @@
+﻿ul.pagination {
+    margin: 5 0 5rem
+}
+
+    ul.pagination .current {
+        padding: 0.1875rem 0.625rem;
+        background: #2198e8;
+        color: #fafafa;
+        border-radius: 20px;
+        font-size: 15px; 
+        font-weight: bolder;
+        cursor: default
+        
+    }
+
+    ul.pagination .pagination-next a::after {
+        content: '\00bb';
+        display: inline-block;
+        margin-left: 0.5rem
+    }
+
+    ul.pagination .pagination-previous a::before {
+        content: '\00ab';
+        display: inline-block;
+        margin-right: 0.5rem
+    }
+
+    ul.pagination li {
+        display: inline-block
+    }
+
+        ul.pagination li .show-for-sr {
+            display: none
+        }
+
+        ul.pagination li a {
+            color: #1f33df;
+            display: block;
+            padding: 0.1875rem 0.625rem;
+            text-decoration: none;
+          
+        }
+
+            ul.pagination li a:hover {
+                background: #e6e6e6;
+                border-radius: 20px;
+                
+            }
+       .Pagin
+       {
+         z-index: 5;
+         position: fixed;
+         width: 500px;
+         height: auto;
+         bottom: 5px;
+         left: 10%;
+        }

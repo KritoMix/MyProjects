@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AdminPanel.Migrations
 {
-    public partial class DataMigrations3 : Migration
+    public partial class DataMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,8 +44,8 @@ namespace AdminPanel.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
                     Dictionary = table.Column<string>(nullable: true),
-                    Price = table.Column<int>(nullable: false),
-                    ImageId = table.Column<int>(nullable: false)
+                    Price = table.Column<int>(nullable: true),
+                    ImageId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -55,7 +55,7 @@ namespace AdminPanel.Migrations
                         column: x => x.ImageId,
                         principalTable: "Images",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -64,7 +64,7 @@ namespace AdminPanel.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ImageId = table.Column<int>(nullable: false),
+                    ImageId = table.Column<int>(nullable: true),
                     ThrumbneilSizeId = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Path = table.Column<string>(nullable: true)
@@ -77,7 +77,7 @@ namespace AdminPanel.Migrations
                         column: x => x.ImageId,
                         principalTable: "Images",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Thrumbneils_ThrumbneilSizes_ThrumbneilSizeId",
                         column: x => x.ThrumbneilSizeId,
